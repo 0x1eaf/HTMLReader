@@ -28,7 +28,7 @@
 		0D1077981C1AC4CD00CF9B41 /* HTMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C25D3A7177BB78600F7C10D /* HTMLDocument.m */; };
 		0D1077991C1AC4CD00CF9B41 /* HTMLDocumentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA5C21A18D7479C00147FE7 /* HTMLDocumentType.m */; };
 		0D10779A1C1AC4CD00CF9B41 /* HTMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA5C21018D7457400147FE7 /* HTMLElement.m */; };
-		0D10779B1C1AC4CD00CF9B41 /* HTMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CACE9E31783A92F00754A8F /* HTMLNode.m */; };
+		0D10779B1C1AC4CD00CF9B41 /* HTMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CACE9E31783A92F00754A8F /* HTMLNode.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		0D10779C1C1AC4CD00CF9B41 /* HTMLOrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC6693518D6CFFC00BDF7B8 /* HTMLOrderedDictionary.m */; };
 		0D10779D1C1AC4CD00CF9B41 /* HTMLSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CD524F918D74CFF003F46A3 /* HTMLSerialization.m */; };
 		0D10779E1C1AC4CD00CF9B41 /* HTMLTextNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CD524EF18D74B71003F46A3 /* HTMLTextNode.m */; };
@@ -64,7 +64,7 @@
 		1C319BD71C618970000DAA63 /* HTMLReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CB61D2417BB671A00EE9653 /* HTMLReader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1C319BD81C618970000DAA63 /* HTMLSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CC6691818D604BC00BDF7B8 /* HTMLSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1C319BD91C61897D000DAA63 /* HTMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA5C21018D7457400147FE7 /* HTMLElement.m */; };
-		1C319BDA1C61897D000DAA63 /* HTMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CACE9E31783A92F00754A8F /* HTMLNode.m */; };
+		1C319BDA1C61897D000DAA63 /* HTMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CACE9E31783A92F00754A8F /* HTMLNode.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1C319BDB1C61897D000DAA63 /* HTMLOrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC6693518D6CFFC00BDF7B8 /* HTMLOrderedDictionary.m */; };
 		1C319BDC1C61897D000DAA63 /* HTMLSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CD524F918D74CFF003F46A3 /* HTMLSerialization.m */; };
 		1C319BDD1C61897D000DAA63 /* HTMLTextNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CD524EF18D74B71003F46A3 /* HTMLTextNode.m */; };
@@ -99,7 +99,7 @@
 		1C6C1FE31A17A07300236076 /* HTMLQuirksMode.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CD5250018DB5DCD003F46A3 /* HTMLQuirksMode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1C88295618369DD70051653C /* HTMLReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C88293B18369DD70051653C /* HTMLReader.framework */; };
 		1C88296618369DF70051653C /* HTMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C25D3A7177BB78600F7C10D /* HTMLDocument.m */; };
-		1C88296718369DF70051653C /* HTMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CACE9E31783A92F00754A8F /* HTMLNode.m */; };
+		1C88296718369DF70051653C /* HTMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CACE9E31783A92F00754A8F /* HTMLNode.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1C88296818369DF70051653C /* HTMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C25D40917837A8A00F7C10D /* HTMLParser.m */; };
 		1C88296918369DF70051653C /* HTMLSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C4518817BAFE3500C144DF /* HTMLSelector.m */; };
 		1C88296A18369DF70051653C /* HTMLString.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CACE9E91783AA6600754A8F /* HTMLString.m */; };
@@ -135,7 +135,7 @@
 		1CA5C21B18D7479C00147FE7 /* HTMLDocumentType.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CA5C21918D7479C00147FE7 /* HTMLDocumentType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1CA5C21C18D7479C00147FE7 /* HTMLDocumentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA5C21A18D7479C00147FE7 /* HTMLDocumentType.m */; };
 		1CA5C21D18D7479C00147FE7 /* HTMLDocumentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA5C21A18D7479C00147FE7 /* HTMLDocumentType.m */; };
-		1CACE9E41783A92F00754A8F /* HTMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CACE9E31783A92F00754A8F /* HTMLNode.m */; };
+		1CACE9E41783A92F00754A8F /* HTMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CACE9E31783A92F00754A8F /* HTMLNode.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1CACE9EA1783AA6600754A8F /* HTMLString.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CACE9E91783AA6600754A8F /* HTMLString.m */; };
 		1CB0B960183F2C7100021DBE /* HTMLPreprocessedInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB0B95E183F2C7100021DBE /* HTMLPreprocessedInputStream.m */; };
 		1CB0B961183F2C7100021DBE /* HTMLPreprocessedInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB0B95E183F2C7100021DBE /* HTMLPreprocessedInputStream.m */; };

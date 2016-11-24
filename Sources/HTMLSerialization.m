@@ -139,7 +139,7 @@ static void RecursiveDescriptionHelper(HTMLNode *self, NSMutableString *string, 
     NSMutableString *result = [NSMutableString new];
     for (HTMLNode *node in self.treeEnumerator) {
         while (stack.lastObject && stack.lastObject != node.parentNode) {
-            [result appendString:[stack.lastObject closeFragment]];
+            [result appendString:(id _Nonnull)[stack.lastObject closeFragment]];
             [stack removeLastObject];
         }
 
