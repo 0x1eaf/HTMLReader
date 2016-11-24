@@ -1,5 +1,8 @@
 # Change Log
 
+## [2.0.2][]
+* Fix crash when deallocating or serializing very deep tree.
+
 ## [2.0.1][]
 
 * Fix buffer overflow when parsing named entities.

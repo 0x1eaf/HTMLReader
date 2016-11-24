@@ -144,7 +144,7 @@
 		1CBACD911A17A5A90016908D /* HTMLDocumentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA5C21A18D7479C00147FE7 /* HTMLDocumentType.m */; };
 		1CBACD921A17A5A90016908D /* HTMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA5C21018D7457400147FE7 /* HTMLElement.m */; };
 		1CBACD931A17A5A90016908D /* HTMLEntities.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C8E10591919F2570010007B /* HTMLEntities.m */; };
-		1CBACD941A17A5A90016908D /* HTMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CACE9E31783A92F00754A8F /* HTMLNode.m */; };
+		1CBACD941A17A5A90016908D /* HTMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CACE9E31783A92F00754A8F /* HTMLNode.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1CBACD951A17A5A90016908D /* HTMLOrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC6693518D6CFFC00BDF7B8 /* HTMLOrderedDictionary.m */; };
 		1CBACD961A17A5A90016908D /* HTMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C25D40917837A8A00F7C10D /* HTMLParser.m */; };
 		1CBACD971A17A5A90016908D /* HTMLPreprocessedInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB0B95E183F2C7100021DBE /* HTMLPreprocessedInputStream.m */; };

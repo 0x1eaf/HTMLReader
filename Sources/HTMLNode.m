@@ -7,6 +7,10 @@
 #import "HTMLTextNode.h"
 #import "HTMLTreeEnumerator.h"
 
+#if __has_feature(objc_arc)
+#   error This file should be compiled without ARC
+#endif
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HTMLChildrenRelationshipProxy : HTMLGenericOf(NSMutableOrderedSet, HTMLNode *)
@@ -21,6 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @implementation HTMLNode
 {
+    HTMLNode *_parentNode;
     HTMLMutableOrderedSetOf(HTMLNode *) *_children;
 }
 
@@ -30,6 +35,12 @@ NS_ASSUME_NONNULL_BEGIN
         _children = [NSMutableOrderedSet new];
     }
     return self;
+}
+
+- (void)dealloc {
+    // Workaround to fix crash on destroing a really deep tree.
+    [_children autorelease];
+    [super dealloc];
 }
 
 - (HTMLDocument * __nullable)document

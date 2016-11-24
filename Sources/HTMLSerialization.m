@@ -134,6 +134,37 @@ static void RecursiveDescriptionHelper(HTMLNode *self, NSMutableString *string, 
 
 - (NSString *)serializedFragment
 {
+    // Do not use recursion. It leads to crash when tree is really deep.
+    NSMutableArray<HTMLElement *> *stack = [NSMutableArray new];
+    NSMutableString *result = [NSMutableString new];
+    for (HTMLNode *node in self.treeEnumerator) {
+        while (stack.lastObject && stack.lastObject != node.parentNode) {
+            [result appendString:[stack.lastObject closeFragment]];
+            [stack removeLastObject];
+        }
+
+        if ([node respondsToSelector:@selector(openFragment)]) {
+            HTMLElement *element = (HTMLElement *)node;
+            [stack addObject:element];
+            [result appendString:[element openFragment]];
+        } else {
+            [result appendString:[node serializedFragment]];
+        }
+    }
+    for (HTMLElement *node in stack.reverseObjectEnumerator) {
+        [result appendString:[node closeFragment]];
+        [stack removeLastObject];
+    }
+    return result;
+}
+
+- (BOOL)isVoidElement
+{
+    return StringIsEqualToAnyOf(self.tagName, @"area", @"base", @"basefont", @"bgsound", @"br", @"col", @"embed", @"frame", @"hr", @"img", @"input", @"keygen", @"link", @"menuitem", @"meta", @"param", @"source", @"track", @"wbr");
+}
+
+- (NSString *)openFragment
+{
     NSMutableString *fragment = [NSMutableString new];
     [fragment appendFormat:@"<%@", self.tagName];
     
@@ -156,12 +187,8 @@ static void RecursiveDescriptionHelper(HTMLNode *self, NSMutableString *string, 
     }];
 
     [fragment appendString:@">"];
-    
-    if (StringIsEqualToAnyOf(self.tagName, @"area", @"base", @"basefont", @"bgsound", @"br", @"col", @"embed", @"frame", @"hr", @"img", @"input", @"keygen", @"link", @"menuitem", @"meta", @"param", @"source", @"track", @"wbr")) {
-        return fragment;
-    }
-    
-    if (StringIsEqualToAnyOf(self.tagName, @"pre", @"textarea", @"listing")) {
+
+    if (StringIsEqualToAnyOf(self.tagName, @"pre", @"textarea", @"listing")) { // Note: none of these are void elements
         if ([self.children.firstObject isKindOfClass:[HTMLTextNode class]]) {
             HTMLTextNode *textNode = (HTMLTextNode *)self.children.firstObject;
             if ([textNode.data hasPrefix:@"\n"]) {
@@ -169,10 +196,13 @@ static void RecursiveDescriptionHelper(HTMLNode *self, NSMutableString *string, 
             }
         }
     }
-    
-    [fragment appendString:self.innerHTML];
-    [fragment appendFormat:@"</%@>", self.tagName];
+
     return fragment;
+}
+
+- (NSString *)closeFragment
+{
+    return self.isVoidElement ? @"" : [NSString stringWithFormat:@"</%@>", self.tagName];
 }
 
 @end
