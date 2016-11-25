@@ -11,6 +11,13 @@
 #   error This file should be compiled without ARC
 #endif
 
+#if __has_feature(objc_arc_weak)
+#   define HTMLWeak(type) __weak type
+#else
+#   define HTMLWeak(type) type
+#endif
+
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HTMLChildrenRelationshipProxy : HTMLGenericOf(NSMutableOrderedSet, HTMLNode *)
@@ -25,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @implementation HTMLNode
 {
-    HTMLNode *_parentNode;
+    HTMLWeak(HTMLNode *) _parentNode;
     HTMLMutableOrderedSetOf(HTMLNode *) *_children;
 }
 
