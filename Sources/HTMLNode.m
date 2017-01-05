@@ -91,7 +91,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (HTMLOrderedSetOf(HTMLNode *) *)children
 {
-    return [_children copy];
+    return [[_children copy] autorelease];
 }
 
 // In order to quickly mutate the children set, we need to pull some shenanigans. From the Key-Value Coding Programming Guide:
@@ -108,7 +108,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (HTMLMutableOrderedSetOf(HTMLNode *) *)mutableChildren
 {
-    return [[HTMLChildrenRelationshipProxy alloc] initWithNode:self children:_children];
+    return [[[HTMLChildrenRelationshipProxy alloc] initWithNode:self children:_children] autorelease];
 }
 
 - (void)addChild:(HTMLNode *)child
@@ -207,7 +207,7 @@ NS_ASSUME_NONNULL_BEGIN
     if ([candidate isKindOfClass:[HTMLTextNode class]]) {
         textNode = candidate;
     } else {
-        textNode = [HTMLTextNode new];
+        textNode = [[HTMLTextNode new] autorelease];
         [[self mutableChildren] insertObject:textNode atIndex:index];
     }
     [textNode appendString:string];
@@ -226,17 +226,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (HTMLEnumeratorOf(HTMLNode *) *)treeEnumerator
 {
-    return [[HTMLTreeEnumerator alloc] initWithNode:self reversed:NO];
+    return [[[HTMLTreeEnumerator alloc] initWithNode:self reversed:NO] autorelease];
 }
 
 - (HTMLEnumeratorOf(HTMLNode *) *)reversedTreeEnumerator
 {
-	return [[HTMLTreeEnumerator alloc] initWithNode:self reversed:YES];
+	return [[[HTMLTreeEnumerator alloc] initWithNode:self reversed:YES] autorelease];
 }
 
 - (NSString *)textContent
 {
-    NSMutableArray *parts = [NSMutableArray new];
+    NSMutableArray *parts = [[NSMutableArray new] autorelease];
     for (HTMLTextNode *node in self.treeEnumerator) {
         if ([node isKindOfClass:[HTMLTextNode class]]) {
             [parts addObject:node.data];
@@ -251,14 +251,14 @@ NS_ASSUME_NONNULL_BEGIN
     
     [[self mutableChildren] removeAllObjects];
     if (textContent.length > 0) {
-        HTMLTextNode *textNode = [[HTMLTextNode alloc] initWithData:textContent];
+        HTMLTextNode *textNode = [[[HTMLTextNode alloc] initWithData:textContent] autorelease];
         [[self mutableChildren] addObject:textNode];
     }
 }
 
 - (NSArray *)textComponents
 {
-    NSMutableArray *textComponents = [NSMutableArray new];
+    NSMutableArray *textComponents = [[NSMutableArray new] autorelease];
     for (HTMLTextNode *textNode in _children) {
         if ([textNode isKindOfClass:[HTMLTextNode class]]) {
             [textComponents addObject:textNode.data];
