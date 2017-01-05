@@ -3,6 +3,8 @@
 ## [2.0.2][]
 * Fix crash when deallocating or serializing very deep tree.
 
+* Fix retain cycle on documents created with `-[HTMLDocument initWithData:contentTypeHeader:]`.
+
 ## [2.0.1][]
 
 * Fix buffer overflow when parsing named entities.
@@ -102,7 +104,8 @@
 * A new document initializer, `-[HTMLDocument initWithData:contentTypeHeader:]`, detects the character encoding as a browser would. This is the ideal initializer for HTML documents fetched over the network, or any other time when the character encoding isn't previously known. Note that HTML does not blindly use the encoding specified by the HTTP `Content-Type` header, so this initializer is still superior to parsing the `Content-Type` yourself.
 
 
-[Unreleased]: https://github.com/nolanw/HTMLReader/compare/v2.0.1...HEAD
+[Unreleased]: https://github.com/nolanw/HTMLReader/compare/v2.0.2...HEAD
+[2.0.2]: https://github.com/nolanw/HTMLReader/compare/v2.0.1...v2.0.2
 [2.0.1]: https://github.com/nolanw/HTMLReader/compare/v2.0...v2.0.1
 [2.0]: https://github.com/nolanw/HTMLReader/compare/v1.0.1...v2.0
 [1.0.1]: https://github.com/nolanw/HTMLReader/compare/v1.0...1.0.1
